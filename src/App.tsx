@@ -1,7 +1,7 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
   
 const App: FunctionComponent = () => {
- const name: String = 'React';
+ const [name, setName] = useState('TEST');
     
  return (
   <h1>Hello, {name} !</h1>
