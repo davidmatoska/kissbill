@@ -1,6 +1,6 @@
-import TicketModel from './ticket-model';
+import TicketModel from './articles';
    
-export const TICKETS: TicketModel[] = [
+export const ARTICLES: TicketModel[] = [
  {
   reference: "ref1",
   quantite: 1,
@@ -21,4 +21,4 @@ export const TICKETS: TicketModel[] = [
    }
 ];
   
-export default TICKETS;
+export default ARTICLES;
