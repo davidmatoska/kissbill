@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react';
-import TicketModel from './models/articles';
+import TicketModel from './models/article';
 import TICKETS, { ARTICLES } from './models/mock-ticket';
   
 const App: FunctionComponent = () => {

@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import Article from '../models/articles';
+import Article from '../models/article';
 import ARTICLES from '../models/mock-ticket';
 import ArticleCard from '../components/article-card';
   
 const ArticleList: FunctionComponent = () => {
-  const [article, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   
   useEffect(() => {
     setArticles(ARTICLES);
@@ -15,7 +15,7 @@ const ArticleList: FunctionComponent = () => {
       <h1 className="center">TICKET</h1>
       <div className="container"> 
         <div className="row"> 
-        {article.map(article => (
+        {articles.map(article => (
           <ArticleCard key={article.reference} article={article}/>
         ))}
         </div>
