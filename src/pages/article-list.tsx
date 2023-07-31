@@ -13,6 +13,7 @@ const ArticleList: FunctionComponent = () => {
   return (
     <div>
       <h1 className="center">TICKET</h1>
+      <p>Il y a {articles.length} articles sur le ticket de caisse </p>
       <div className="container"> 
         <div className="row"> 
         {articles.map(article => (
