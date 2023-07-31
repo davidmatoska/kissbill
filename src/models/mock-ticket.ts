@@ -1,6 +1,6 @@
-import TicketModel from './articles';
+import Article from './article';
    
-export const ARTICLES: TicketModel[] = [
+export const ARTICLES: Article[] = [
  {
   reference: "ref1",
   quantite: 1,
