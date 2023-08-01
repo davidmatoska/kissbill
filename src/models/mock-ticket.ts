@@ -9,14 +9,14 @@ export const ARTICLES: Article[] = [
  },
  {
     reference: "ref2",
-    quantite: 1,
-    prix: 1,
+    quantite: 2,
+    prix: 2,
     created: new Date()
    },
    {
     reference: "ref3",
-    quantite: 1,
-    prix: 1,
+    quantite: 3,
+    prix: 3,
     created: new Date()
    }
 ];
