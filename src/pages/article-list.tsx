@@ -14,12 +14,15 @@ const ArticleList: FunctionComponent = () => {
     <div className="center">
       <h1>TICKET</h1>
       <p>Il y a {articles.length} articles sur le ticket de caisse </p>
+     
+
       <div className="container"> 
         <div className="row"> 
         {articles.map(article => (
           <ArticleCard key={article.reference} article={article}/>
         ))}
         </div>
+        
       </div>
     </div> 
   );
