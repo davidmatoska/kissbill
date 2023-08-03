@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import Article from '../models/article';
-import './article-card.css';
+import './article-table.css';
   
 type Props = {
   article: Article
 };
+
+
   
-const ArticleCard: FunctionComponent<Props> = ({article}) => {
+const ArticleTableRow: FunctionComponent<Props> = ({article}) => {
     
   return (
 
@@ -28,4 +30,4 @@ const ArticleCard: FunctionComponent<Props> = ({article}) => {
   );
 }
   
-export default ArticleCard;
+export default ArticleTableRow;
