@@ -1,14 +1,23 @@
 import React, { FunctionComponent } from 'react';
 import Article from '../models/article';
 import './article-table.css';
-  
-type Props = {
+import {useReactTable, getCoreRowModel, flexRender} from '@tanstack/react-table';
+
+
+export default function ArticleTable(){
+
+  const table = useReactTable(gh)
+
+  return <div>tableau</div>
+}
+
+/* type Props = {
   article: Article
 };
 
 
   
-const ArticleTableRow: FunctionComponent<Props> = ({article}) => {
+const ArticleTable: FunctionComponent<Props> = ({article}) => {
     
   return (
 
@@ -30,4 +39,4 @@ const ArticleTableRow: FunctionComponent<Props> = ({article}) => {
   );
 }
   
-export default ArticleTableRow;
+export default ArticleTable; */
