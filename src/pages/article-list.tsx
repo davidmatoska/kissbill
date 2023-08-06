@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import Article from '../models/article';
 import ARTICLES from '../models/mock-ticket';
-import ArticleTableRow from '../components/article-table';
 
   
 const ArticleList: FunctionComponent = () => {
@@ -20,12 +19,7 @@ const ArticleList: FunctionComponent = () => {
       <div className="container"> 
     
         
-        <div className="row"> 
-        {articles.map(article => (
-          <ArticleTableRow key={article.reference} article={article}/>
-        ))}
-        </div>
-        
+
       </div>
     </div> 
   );
