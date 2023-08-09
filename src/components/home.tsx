@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IArticle } from "../models/Article.type";
 import { dummyArticleList } from "../models/DummyArticleList";
+import ArticleList from "../models/ArticleList";
 import "./Home.style.css";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
 
             <section className="section-content">
                 <div>contenu</div>
+                <ArticleList list={articleList} />
             </section>
         </>
     );
