@@ -16,16 +16,16 @@ const ArticleList = (props:Props) => {
     return <div>la liste des articles
         <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Référence</th>
+    <th>Prix unitaire</th>
+    <th>Quantité</th>
   </tr>
   {list.map((article) => {
     return (
-        <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
+        <tr key={article.id}>
+        <td>{`${article.reference}`}</td>
+        <td>{`${article.price}`}</td>
+        <td>quantité</td>
       </tr>
     );
   })}
