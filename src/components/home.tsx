@@ -5,7 +5,11 @@ import ArticleList from "../models/ArticleList";
 import "./Home.style.css";
 
 const Home = () => {
+    
     const [articleList, setArticleList] = useState(dummyArticleList as IArticle[]);
+
+    const [shownPage, setShownPage] = useState("list")
+
     return (
         <>
             <article className="article-header">
@@ -16,7 +20,13 @@ const Home = () => {
 
             <section className="section-content">
                 <div>contenu</div>
+                {shownPage === "list" && (
+                    <>
+                <input type="button" value="Ajout article"/>
                 <ArticleList list={articleList} />
+                    </>
+                )
+                }
             </section>
         </>
     );
