@@ -19,6 +19,7 @@ const ArticleList = (props:Props) => {
     <th>Référence</th>
     <th>Prix unitaire</th>
     <th>Quantité</th>
+    <th>Modifier/Supprimer</th>
   </tr>
   {list.map((article) => {
     return (
@@ -26,6 +27,12 @@ const ArticleList = (props:Props) => {
         <td>{`${article.reference}`}</td>
         <td>{`${article.price}`}</td>
         <td>quantité</td>
+        <td>
+          <div>
+            <input type="button" value="Modifier"></input>
+            <input type="button" value="Supprimer"></input>
+          </div>
+        </td>
       </tr>
     );
   })}
