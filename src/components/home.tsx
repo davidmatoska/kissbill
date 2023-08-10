@@ -16,6 +16,10 @@ const Home = () => {
         setShownPage(PageEnum.add);
     };
 
+    const showListPage = () => {
+        setShownPage(PageEnum.list)
+    };
+
     return (
         <>
             <article className="article-header">
@@ -34,7 +38,7 @@ const Home = () => {
                 )
                 }
 
-                {shownPage === PageEnum.add && <AddArticle />}
+                {shownPage === PageEnum.add && <AddArticle onBackBtnClickHnd={showListPage} />}
             </section>
         </>
     );

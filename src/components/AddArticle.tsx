@@ -1,4 +1,10 @@
-const AddArticle = () => {
+
+type Props = {
+    onBackBtnClickHnd : ()  => void
+}
+
+const AddArticle = (props : Props) => {
+        const { onBackBtnClickHnd } = props
     return <> 
     <div>Ajout Article</div>
     <form>
@@ -15,7 +21,7 @@ const AddArticle = () => {
             <input type="text" />
         </div>
         <div>
-            <input type="button" value="Retour" />
+            <input type="button" value="Retour" onClick={onBackBtnClickHnd} />
             <input type="submit" value="Ajouter" />
         </div>
     </form>
