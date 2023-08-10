@@ -2,13 +2,19 @@ import { useState } from 'react';
 import { IArticle } from "../models/Article.type";
 import { dummyArticleList } from "../models/DummyArticleList";
 import ArticleList from "../models/ArticleList";
+import AddArticle from './AddArticle';
 import "./Home.style.css";
+import { PageEnum } from '../pages/PageEnume';
 
 const Home = () => {
     
     const [articleList, setArticleList] = useState(dummyArticleList as IArticle[]);
 
-    const [shownPage, setShownPage] = useState("list")
+    const [shownPage, setShownPage] = useState(PageEnum.list);
+
+    const onAddArticleClickHnd = () => {
+        setShownPage(PageEnum.add);
+    };
 
     return (
         <>
@@ -20,13 +26,15 @@ const Home = () => {
 
             <section className="section-content">
                 <div>contenu</div>
-                {shownPage === "list" && (
+                {shownPage === PageEnum.list && (
                     <>
-                <input type="button" value="Ajout article"/>
+                <input type="button" value="Ajout article" onClick={onAddArticleClickHnd}/>
                 <ArticleList list={articleList} />
                     </>
                 )
                 }
+
+                {shownPage === PageEnum.add && <AddArticle />}
             </section>
         </>
     );

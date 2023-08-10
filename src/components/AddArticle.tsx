@@ -1,5 +1,5 @@
-const addArticle = () => {
+const AddArticle = () => {
     return <div>Ajout Article</div>;
 };
 
-export default addArticle;
+export default AddArticle;
