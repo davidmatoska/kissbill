@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./ArticleForm.style.css";
+import { IArticle } from "../models/Article.type";
 
 type Props = {
-    onBackBtnClickHnd : ()  => void
-}
+    onBackBtnClickHnd : ()  => void;
+    onSubmitClickHnd: (data: IArticle) => void
+};
 
 const AddArticle = (props : Props) => {
 
@@ -27,12 +29,23 @@ const AddArticle = (props : Props) => {
             setPrice(e.target.value)
         }
 
+        const onSubmitClickHnd = () => {
+        const data: IArticle = {
+            id: id,
+            reference: reference,
+            price: price
+        }
+
+        onSubmitClickHnd(data);
+
+        }
+
     return( 
     <div className="form-container">
     <div>
         <h3>Ajout Article</h3>
     </div>
-    <form>
+    <form onSubmit={onSubmitClickHnd}>
         <div>
             <label>identifiant</label>
             <input type="text" value={id} onChange={onIdChangeHnd} />
