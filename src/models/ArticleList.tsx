@@ -1,18 +1,14 @@
-/*import { useState } from "react";
-import { IArticle } from "./Article.type";
-
-
-const [articleList, setArticleList] = useState([] as IArticle[]);*/
-
 import "../components/ArticleTable.style.css"
 import { IArticle } from "./Article.type";
 
 type Props = {
-    list: IArticle[]
-}
+    list: IArticle[];
+    onDeleteClickHnd: (data: IArticle) => void
+};
 
 const ArticleList = (props:Props) => {
-    const { list } = props;
+    const { list, onDeleteClickHnd } = props;
+
     return (
     <div>
       <article>
@@ -33,8 +29,13 @@ const ArticleList = (props:Props) => {
               <td>quantité</td>
               <td>
                 <div>
-                  <input type="button" value="Modifier"></input>
-                  <input type="button" value="Supprimer"></input>
+                  <input 
+                  type="button" 
+                  value="Modifier"></input>
+                  <input 
+                  type="button" 
+                  value="Supprimer" 
+                  onClick={() => onDeleteClickHnd(article)}></input>
                 </div>
               </td>
             </tr>

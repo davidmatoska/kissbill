@@ -22,6 +22,18 @@ const Home = () => {
 
     const addArticle = (data: IArticle) => {
         setArticleList([...articleList, data])
+    };
+
+    const deleteArticle = (data: IArticle) => {
+        // To index from array i,e articleList
+        // Splice that
+        // update new record
+
+        const indexToDelete = articleList.indexOf(data);
+        const tempList = {...articleList}
+
+        tempList.splice(indexToDelete, 1);
+        setArticleList(tempList)
     }
 
     return (
@@ -33,7 +45,7 @@ const Home = () => {
             </article>
 
             <section className="section-content">
-                <div>contenu</div>
+             
                 {shownPage === PageEnum.list && (
                     <>
                 <input 
@@ -42,7 +54,7 @@ const Home = () => {
                 value="Ajout article" 
                 onClick={onAddArticleClickHnd}
                 />
-                <ArticleList list={articleList} />
+                <ArticleList list={articleList} onDeleteClickHnd={deleteArticle} />
                     </>
                 )
                 }
