@@ -30,7 +30,7 @@ const Home = () => {
         // update new record
 
         const indexToDelete = articleList.indexOf(data);
-        const tempList = {...articleList}
+        const tempList = [...articleList];
 
         tempList.splice(indexToDelete, 1);
         setArticleList(tempList)

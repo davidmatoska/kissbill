@@ -23,7 +23,7 @@ const ArticleList = (props:Props) => {
         </tr>
         {list.map((article) => {
           return (
-              <tr key={article.id}>
+            <tr key={article.id}>
               <td>{`${article.reference}`}</td>
               <td>{`${article.price}`}</td>
               <td>quantité</td>
