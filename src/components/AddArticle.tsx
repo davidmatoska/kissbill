@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./ArticleForm.style.css";
 import { IArticle } from "../models/Article.type";
 
-let price = 1;
 
 type Props = {
     onBackBtnClickHnd : ()  => void;
@@ -29,6 +28,7 @@ const AddArticle = (props : Props) => {
 
         const onPriceChangeHnd = (e: any) => {
             setPrice(e.target.value)
+            
         }
 
         const onSubmitBtnClickHnd = () => {
@@ -58,7 +58,7 @@ const AddArticle = (props : Props) => {
         </div>
         <div>
             <label>prix unitaire</label>
-            <input type="number" pattern="[0-9]* " value={price} onChange={onPriceChangeHnd} />
+            <input type="number" pattern="[0-9]*" value={price} onChange={onPriceChangeHnd} />
         </div>
         <div>
             <input type="button" value="Retour" onClick={onBackBtnClickHnd} />
