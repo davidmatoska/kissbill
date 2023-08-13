@@ -20,6 +20,10 @@ const Home = () => {
         setShownPage(PageEnum.list)
     };
 
+    const addArticle = (data: IArticle) => {
+        setArticleList([...articleList, data])
+    }
+
     return (
         <>
             <article className="article-header">
@@ -38,7 +42,9 @@ const Home = () => {
                 )
                 }
 
-                {shownPage === PageEnum.add && <AddArticle onBackBtnClickHnd={showListPage} />}
+                {shownPage === PageEnum.add && (
+                <AddArticle onBackBtnClickHnd={showListPage} onSubmitClickHnd={addArticle} />
+                )}
             </section>
         </>
     );

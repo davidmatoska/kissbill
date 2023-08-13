@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ArticleForm.style.css";
 import { IArticle } from "../models/Article.type";
+import ArticleList from "../models/ArticleList";
 
 
 type Props = {
@@ -31,7 +32,8 @@ const AddArticle = (props : Props) => {
             
         }
 
-        const onSubmitBtnClickHnd = () => {
+        const onSubmitBtnClickHnd = (e: any) => {
+            e.preventDefault();
         const data: IArticle = {
             id: id,
             reference: reference,
@@ -39,8 +41,10 @@ const AddArticle = (props : Props) => {
         }
 
         onSubmitClickHnd(data);
+        onBackBtnClickHnd();
 
         }
+
 
     return( 
     <div className="form-container">
