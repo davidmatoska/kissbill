@@ -13,32 +13,36 @@ type Props = {
 
 const ArticleList = (props:Props) => {
     const { list } = props;
-    return <div>la liste des articles
-        <table>
-  <tr>
-    <th>Référence</th>
-    <th>Prix unitaire</th>
-    <th>Quantité</th>
-    <th>Modifier/Supprimer</th>
-  </tr>
-  {list.map((article) => {
     return (
-        <tr key={article.id}>
-        <td>{`${article.reference}`}</td>
-        <td>{`${article.price}`}</td>
-        <td>quantité</td>
-        <td>
-          <div>
-            <input type="button" value="Modifier"></input>
-            <input type="button" value="Supprimer"></input>
-          </div>
-        </td>
-      </tr>
-    );
-  })}
-        </table>
+    <div>
+      <article>
+        <h3 className="list-header">TICKET DE CAISSE</h3>
+      </article>
+      <table>
+        <tr>
+          <th>Référence</th>
+          <th>Prix unitaire</th>
+          <th>Quantité</th>
+          <th>Modifier/Supprimer</th>
+        </tr>
+        {list.map((article) => {
+          return (
+              <tr key={article.id}>
+              <td>{`${article.reference}`}</td>
+              <td>{`${article.price}`}</td>
+              <td>quantité</td>
+              <td>
+                <div>
+                  <input type="button" value="Modifier"></input>
+                  <input type="button" value="Supprimer"></input>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </table>
     </div>
-
+        )
     
 };
 

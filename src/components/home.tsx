@@ -36,7 +36,12 @@ const Home = () => {
                 <div>contenu</div>
                 {shownPage === PageEnum.list && (
                     <>
-                <input type="button" value="Ajout article" onClick={onAddArticleClickHnd}/>
+                <input 
+                className="add-article-btn" 
+                type="button" 
+                value="Ajout article" 
+                onClick={onAddArticleClickHnd}
+                />
                 <ArticleList list={articleList} />
                     </>
                 )
