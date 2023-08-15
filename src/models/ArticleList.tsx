@@ -8,7 +8,7 @@ type Props = {
 };
 
 const ArticleList = (props:Props) => {
-    const { list, onDeleteClickHnd } = props;
+    const { list, onDeleteClickHnd, onEdit } = props;
 
     return (
     <div>
