@@ -4,6 +4,7 @@ import { IArticle } from "./Article.type";
 type Props = {
     list: IArticle[];
     onDeleteClickHnd: (data: IArticle) => void
+    onEdit: (data: IArticle) => void;
 };
 
 const ArticleList = (props:Props) => {
@@ -31,7 +32,9 @@ const ArticleList = (props:Props) => {
                 <div>
                   <input 
                   type="button" 
-                  value="Modifier"></input>
+                  value="Modifier"
+                  onClick={() => onEdit(article)}>
+                  </input>
                   <input 
                   type="button" 
                   value="Supprimer" 

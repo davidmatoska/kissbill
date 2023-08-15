@@ -5,6 +5,7 @@ import ArticleList from "../models/ArticleList";
 import AddArticle from './AddArticle';
 import "./Home.style.css";
 import { PageEnum } from '../pages/PageEnume';
+import EditArticle from './EditArticle';
 
 const Home = () => {
     
@@ -34,6 +35,10 @@ const Home = () => {
 
         tempList.splice(indexToDelete, 1);
         setArticleList(tempList)
+    };
+
+    const editArticleData = (data: IArticle) => {
+        setShownPage(PageEnum.edit);
     }
 
     return (
@@ -48,13 +53,19 @@ const Home = () => {
              
                 {shownPage === PageEnum.list && (
                     <>
+                
                 <input 
                 className="add-article-btn" 
                 type="button" 
                 value="Ajout article" 
                 onClick={onAddArticleClickHnd}
                 />
-                <ArticleList list={articleList} onDeleteClickHnd={deleteArticle} />
+
+                <ArticleList 
+                list={articleList} 
+                onDeleteClickHnd={deleteArticle}
+                onEdit={editArticleData}
+                />
                     </>
                 )
                 }
@@ -62,6 +73,9 @@ const Home = () => {
                 {shownPage === PageEnum.add && (
                 <AddArticle onBackBtnClickHnd={showListPage} onSubmitClickHnd={addArticle} />
                 )}
+
+                {shownPage === PageEnum.edit && <EditArticle />}
+
             </section>
         </>
     );
