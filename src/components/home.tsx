@@ -13,6 +13,9 @@ const Home = () => {
 
     const [shownPage, setShownPage] = useState(PageEnum.list);
 
+    const [dataToEdit, setDataToEdit] = useState({} as IArticle);
+
+
     const onAddArticleClickHnd = () => {
         setShownPage(PageEnum.add);
     };
@@ -39,7 +42,13 @@ const Home = () => {
 
     const editArticleData = (data: IArticle) => {
         setShownPage(PageEnum.edit);
+        setDataToEdit(data);
     }
+
+    const updateData = (data: IArticle) => {
+        const filteredData = articleList.filter(x => x.id === data.id)[0];
+        const indexOfRecord = articleList.indexOf(filteredData);
+    } 
 
     return (
         <>
@@ -74,7 +83,7 @@ const Home = () => {
                 <AddArticle onBackBtnClickHnd={showListPage} onSubmitClickHnd={addArticle} />
                 )}
 
-                {shownPage === PageEnum.edit && <EditArticle />}
+                {shownPage === PageEnum.edit && <EditArticle data={dataToEdit} onBackBtnClickHnd={showListPage} onUpdateClickHnd={updateData} />}
 
             </section>
         </>
