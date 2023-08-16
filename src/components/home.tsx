@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IArticle } from "../models/Article.type";
-import { dummyArticleList } from "../models/DummyArticleList";
 import ArticleList from "../models/ArticleList";
 import AddArticle from './AddArticle';
 import "./Home.style.css";
@@ -8,12 +7,19 @@ import { PageEnum } from '../pages/PageEnume';
 import EditArticle from './EditArticle';
 
 const Home = () => {
-    
-    const [articleList, setArticleList] = useState(dummyArticleList as IArticle[]);
+
+    const [articleList, setArticleList] = useState([] as IArticle[]);
 
     const [shownPage, setShownPage] = useState(PageEnum.list);
 
     const [dataToEdit, setDataToEdit] = useState({} as IArticle);
+
+    useEffect(() => {
+        const listInString = window.localStorage.getItem("ArticleList")
+        if(listInString) {
+            _setArticleList(JSON.parse(listInString));
+        }
+    }, []);
 
 
     const onAddArticleClickHnd = () => {
@@ -22,6 +28,11 @@ const Home = () => {
 
     const showListPage = () => {
         setShownPage(PageEnum.list)
+    };
+
+    const _setArticleList = (list: IArticle[]) => {
+        setArticleList(list);
+        window.localStorage.setItem("ArticleList", JSON.stringify(list));
     };
 
     const addArticle = (data: IArticle) => {
@@ -37,7 +48,7 @@ const Home = () => {
         const tempList = [...articleList];
 
         tempList.splice(indexToDelete, 1);
-        setArticleList(tempList)
+        _setArticleList(tempList);
     };
 
     const editArticleData = (data: IArticle) => {
@@ -48,7 +59,10 @@ const Home = () => {
     const updateData = (data: IArticle) => {
         const filteredData = articleList.filter(x => x.id === data.id)[0];
         const indexOfRecord = articleList.indexOf(filteredData);
-    } 
+        const tempData = [...articleList];
+        tempData[indexOfRecord] = data;
+        setArticleList(tempData);
+    }
 
     return (
         <>
@@ -59,28 +73,28 @@ const Home = () => {
             </article>
 
             <section className="section-content">
-             
+
                 {shownPage === PageEnum.list && (
                     <>
-                
-                <input 
-                className="add-article-btn" 
-                type="button" 
-                value="Ajout article" 
-                onClick={onAddArticleClickHnd}
-                />
 
-                <ArticleList 
-                list={articleList} 
-                onDeleteClickHnd={deleteArticle}
-                onEdit={editArticleData}
-                />
+                        <input
+                            className="add-article-btn"
+                            type="button"
+                            value="Ajout article"
+                            onClick={onAddArticleClickHnd}
+                        />
+
+                        <ArticleList
+                            list={articleList}
+                            onDeleteClickHnd={deleteArticle}
+                            onEdit={editArticleData}
+                        />
                     </>
                 )
                 }
 
                 {shownPage === PageEnum.add && (
-                <AddArticle onBackBtnClickHnd={showListPage} onSubmitClickHnd={addArticle} />
+                    <AddArticle onBackBtnClickHnd={showListPage} onSubmitClickHnd={addArticle} />
                 )}
 
                 {shownPage === PageEnum.edit && <EditArticle data={dataToEdit} onBackBtnClickHnd={showListPage} onUpdateClickHnd={updateData} />}
