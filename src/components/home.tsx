@@ -5,6 +5,8 @@ import AddArticle from './AddArticle';
 import "./Home.style.css";
 import { PageEnum } from '../pages/PageEnume';
 import EditArticle from './EditArticle';
+//Scanner
+import {BarcodeScanner} from './Scanner';
 
 const Home = () => {
 
@@ -71,6 +73,8 @@ const Home = () => {
                     <h1>Ticket de caisse</h1>
                 </header>
             </article>
+
+            <video/>
 
             <section className="section-content">
 
