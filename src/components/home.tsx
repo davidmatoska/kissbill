@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useEffect, useState } from 'react';
 import { IArticle } from "../models/Article.type";
 import ArticleList from "../models/ArticleList";
@@ -66,6 +68,7 @@ const Home = () => {
         setArticleList(tempData);
     }
 
+    
     return (
         <>
             <article className="article-header">
@@ -73,8 +76,6 @@ const Home = () => {
                     <h1>Ticket de caisse</h1>
                 </header>
             </article>
-
-            <video/>
 
             <section className="section-content">
 
