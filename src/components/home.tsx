@@ -8,7 +8,7 @@ import "./Home.style.css";
 import { PageEnum } from '../pages/PageEnume';
 import EditArticle from './EditArticle';
 //Scanner
-import {BarcodeScanner} from './Scanner';
+//import {BarcodeScanner} from './Scanner';
 
 const Home = () => {
 
