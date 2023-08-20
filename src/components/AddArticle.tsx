@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./ArticleForm.style.css";
 import { IArticle } from "../models/Article.type";
 import ArticleList from "../models/ArticleList";
-
+//scanner
+import { BarcodeScanner } from "./BarcodeScanner";
 
 type Props = {
     onBackBtnClickHnd: () => void;
@@ -45,12 +46,23 @@ const AddArticle = (props: Props) => {
 
     }
 
+    const [mounted, setMounted] = useState(true);
+
 
     return (
         <div className="form-container">
             <div>
                 <h3>Ajout Article</h3>
             </div>
+
+            <div>
+                <h1>react-zxing example</h1>
+                <button onClick={() => setMounted(!mounted)}>
+                    {mounted ? "Unmount" : "Mount"}
+                </button>
+            </div>
+            {mounted ? <BarcodeScanner /> : null}
+
             <form onSubmit={onSubmitBtnClickHnd}>
                 <div>
                     <label>identifiant</label>
