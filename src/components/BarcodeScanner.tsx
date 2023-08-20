@@ -3,18 +3,13 @@ import { useZxing } from "react-zxing";
 
 export const BarcodeScanner: React.FC<{}> = () => {
   const [result, setResult] = useState("");
-  const [count, setCount] = useState(0);
   const [paused, setPaused] = useState(false);
 
   const {
     ref,
-    torch: {
-      on: torchOn,
-      off: torchOff,
-    },
   } = useZxing({
     paused,
-    onDecodeResult(result) {
+    onDecodeResult(result) {  
       setResult(result.getText());
     },
     onDecodeError(error) {
@@ -38,8 +33,6 @@ export const BarcodeScanner: React.FC<{}> = () => {
         <button onClick={() => setPaused(!paused)}>
           {paused ? "Resume" : "Pause"}
         </button>
-
-        <button onClick={() => setCount(count + 1)}>Count: {count}</button>
       </div>
     </>
   );

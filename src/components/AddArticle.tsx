@@ -46,6 +46,8 @@ const AddArticle = (props: Props) => {
 
     }
 
+    // scanner
+
     const [mounted, setMounted] = useState(true);
 
 
@@ -56,7 +58,6 @@ const AddArticle = (props: Props) => {
             </div>
 
             <div>
-                <h1>react-zxing example</h1>
                 <button onClick={() => setMounted(!mounted)}>
                     {mounted ? "Unmount" : "Mount"}
                 </button>
